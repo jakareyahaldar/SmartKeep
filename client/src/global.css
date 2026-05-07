@@ -1,0 +1,28 @@
+
+
+
+*{
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.normalFont {
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.titleFont {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: .5px;
+}
+
+.inputOpen{
+  animation: widthOpen 1s linear;
+}
+
+@keyframes widthOpen{
+  0%{width:0px}
+  100%{width:200px}
+}
