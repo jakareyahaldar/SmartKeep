@@ -14,6 +14,8 @@ const app = express();
 
 // Connect to database
 connectDB();
+require("./services/live.agent.js")
+require("./services/cronjob.js")
 
 // Middleware
 app.use(cors({

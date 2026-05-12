@@ -12,9 +12,9 @@ const EmptyForm = {
   title: "",
   note: "",
   due: `${date.getFullYear()}-${ date.getMonth()<10 ? "0"+date.getMonth() : date.getMonth() }-${ date.getDate()<10 ? "0"+date.getDate() : date.getDate() }`,
-  status: "pending"
+  status: "pending",
+  due_time: "00:00"
 }
-console.log(EmptyForm)
 
 export default function TaskManager(){
   const name = "tasks"
@@ -45,6 +45,13 @@ export default function TaskManager(){
     value: formData.due,
     chengeEvent: (e)=>setForm(prev => ({...prev, due: e.target.value})),
     type: "date"
+  },
+  {
+    name: "due_time",
+    placeholder: "Due Time:",
+    value: formData.due_time,
+    chengeEvent: (e)=>setForm(prev => ({...prev, due_time: e.target.value})),
+    type: "time"
   }
   ]
 
@@ -178,6 +185,11 @@ export default function TaskManager(){
               {item.due && (
                 <p className="text-sm text-gray-600">
                   <span className="font-semibold">Due:</span> {item.due}
+                </p>
+              )}
+              {item.due_time && (
+                <p className="text-sm text-gray-600">
+                  <span className="font-semibold">Time:</span> {item.due_time}
                 </p>
               )}
 

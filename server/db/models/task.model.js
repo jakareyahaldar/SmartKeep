@@ -5,6 +5,7 @@ const taskSchema = new mongoose.Schema(
     title: { type: String },
     note: { type: String, required: true },
     due: { type: String },
+    due_time: { type: String },
     status: { type: String, default: "pending" }
   },
   {
