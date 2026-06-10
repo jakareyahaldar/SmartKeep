@@ -12,8 +12,18 @@ module.exports = {
     }
   },
   
+  // Update by _id
+  updateById: async (_id,data)=>{
+    try{
+      const uu = await TASKS.findOneAndUpdate({_id},data)
+    }catch(err){
+      console.log(err)
+    }
+  },
+  
   // add new one 
   add: async (req,resp)=>{
+    console.log(req.body)
     try{
       // validate data
       for(const key of ["note"]){

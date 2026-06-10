@@ -6,12 +6,18 @@ import { useSelector, useDispatch } from "react-redux"
 import { add, edit, _delete } from "../../feature/my_state/my_state_slice.js"
 import { popup } from "../../utilities/Alert.js"
 
-const date = new Date()
+function dateNow(){
+  const date = new Date()
+  let month = date.getMonth()+1
+  month = month < 10 ? `0${month}` : month
+  const dateStr = `${date.getFullYear()}-${month}-${date.getDate()}`
+  return dateStr
+}
 
 const EmptyForm = {
   title: "",
   note: "",
-  due: `${date.getFullYear()}-${ date.getMonth()<10 ? "0"+date.getMonth() : date.getMonth() }-${ date.getDate()<10 ? "0"+date.getDate() : date.getDate() }`,
+  due: dateNow(),
   status: "pending",
   due_time: "00:00"
 }
@@ -57,13 +63,20 @@ export default function TaskManager(){
 
   async function AddTask(e){
     e.preventDefault()
+    
+    
+    
     // get actual data 
     const data = {}
     for(const key of Object.keys(EmptyForm)){
-      data[key]= formData[key]
+      if(key !== "due"){
+        data[key]= formData[key]
+      }else{
+        data[key]= formData[key].split("-").join("/")
+      }
     }
     // save and update req
-    const req = !formData._id ? await POST("/tasks",formData) : await PUT("/tasks",formData._id, data)
+    const req = !formData._id ? await POST("/tasks",data) : await PUT("/tasks",formData._id, data)
     const res = await req.json()
     // alert popup
     if(!req.ok){

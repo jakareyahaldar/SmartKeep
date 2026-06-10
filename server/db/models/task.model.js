@@ -6,7 +6,9 @@ const taskSchema = new mongoose.Schema(
     note: { type: String, required: true },
     due: { type: String },
     due_time: { type: String },
-    status: { type: String, default: "pending" }
+    status: { type: String, default: "pending" },
+    seventyNotify: { type: Boolean, default: false },
+    endNotify: { type: Boolean, default: false }
   },
   {
     timestamps: true,

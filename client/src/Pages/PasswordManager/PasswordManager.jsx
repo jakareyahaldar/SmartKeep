@@ -31,7 +31,7 @@ export default function PasswordManager() {
     chengeEvent: (e)=>setForm(prev => ({...prev, site: e.target.value})),
     type: "text",
     element: "select",
-    options: ["facebook","youtube","instagram","telegram","whatsapp"]
+    options: ["google","facebook","youtube","instagram","telegram","whatsapp"]
   },
   {
     name: "username",
