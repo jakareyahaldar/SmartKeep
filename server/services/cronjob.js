@@ -82,9 +82,9 @@ function CheckQ(Q){
   }
 }
 
-setInterval(()=>{
-  AnalizeTask()
-},10000)
-setInterval(()=>{
-  CheckQ(Q)
-},5000)
+// setInterval(()=>{
+//   AnalizeTask()
+// },10000)
+// setInterval(()=>{
+//   CheckQ(Q)
+// },5000)

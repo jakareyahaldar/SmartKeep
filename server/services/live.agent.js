@@ -6,7 +6,7 @@ const { bot } = require("../lib/telegram.js")
 
 // Create a bot that uses 'polling' to fetch new updates
 //const bot = new TelegramBot(token, {polling: true});
-bot.sendMessage("1897909125","SmartKeep Reastart Success!")
+//bot.sendMessage("1897909125","SmartKeep Reastart Success!")
 
 bot.on('message', async (msg) => {
 
