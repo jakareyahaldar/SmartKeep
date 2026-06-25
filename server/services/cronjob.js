@@ -17,7 +17,6 @@ function getMilliseconds(dateTimeStr) {
 }
 
 async function AddInNotifyQ(task){
-  console.log(task)
   if(task.status !== "pending" || (task.seventyNotify && task.endNotify)) return
   const dueTime = !task.due ? null : getMilliseconds( `${task.due},${task.due_time}` )
   if(!dueTime) return

@@ -24,6 +24,7 @@ app.use(cors({
 })); // Enable CORS
 app.use(express.json()); // JSON parser
 app.use(cookieParser()); // Coockie parser
+app.use(express.static('dist'))
 
 // Router use 
 app.use("/admin",require("./routes/admin.router.js"))
